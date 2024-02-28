@@ -1,4 +1,4 @@
-# Telecommunications Project
+# Telecommunication Project
 
 ## Description
 This repository contains case studies that I have worked on as part of my education as a data analyst. The purpose is to demonstrate my skills in data collection, cleansing, analysis, and visualization.
