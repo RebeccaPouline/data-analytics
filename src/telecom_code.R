@@ -69,7 +69,7 @@ summary(comb_teledata)
 str(comb_teledata)
 
 # Convert 'Churn' from logical to factor
-comb_teledata$Churn <- factor(comb_teledata$Churn, levels = c(TRUE, FALSE), labels = c("Yes", "No"))
+comb_teledata$Churn <- factor(ifelse(comb_teledata$Churn, "Yes", "No"))
 
 # Convert character columns to factors
 comb_teledata <- comb_teledata |>  
@@ -104,7 +104,7 @@ for (i in seq_along(thresh)) {
   results$FN[i] <- cm$table["Yes", "No"]
   results$TP[i] <- cm$table["Yes", "Yes"]
   results$TN[i] <- cm$table["No", "No"]
-  results$TotalCosts[i] <- results$FN[i] * FN_omk + results$FP[i] * FP_omk
+  results$TotalCosts[i] <- results$FN[i] * cost_FN + results$FP[i] * cost_FP
 }
 
 # Find the optimal threshold value
